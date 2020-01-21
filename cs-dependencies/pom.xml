@@ -780,8 +780,8 @@
                 <artifactId>morphia</artifactId>
                 <version>${morphia.version}</version>
             </dependency>
+            <!-- jhipster-needle-maven-add-dependency-management -->
         </dependencies>
-
     </dependencyManagement>
 
 
