@@ -21,6 +21,7 @@
     <modules>
         <module>cs-dependencies</module>
         <module>cs-common</module>
+        <module>cs-tenancy</module>
     </modules>
 
     <properties>
@@ -238,6 +239,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-
 </project>
