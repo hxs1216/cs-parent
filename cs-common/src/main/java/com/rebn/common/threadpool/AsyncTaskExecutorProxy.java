@@ -27,6 +27,8 @@ public class AsyncTaskExecutorProxy extends AbstractExecutorProxy implements Asy
 
     @Override
     public void execute(Runnable task) {
+
+        // 设置租户号+上下文
         executor.execute(super.createWrappedRunnable(task));
     }
 

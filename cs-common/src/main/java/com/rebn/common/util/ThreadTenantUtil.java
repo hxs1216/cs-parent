@@ -6,7 +6,6 @@ package com.rebn.common.util;
  * Create Time: 2020/1/21
  *
  * @author hxs
- * @email huangxiaosheng@xxfqc.com
  * Update Time:
  * Updater:
  * Update Comments:

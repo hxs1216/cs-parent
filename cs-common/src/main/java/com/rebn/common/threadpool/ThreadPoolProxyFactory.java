@@ -4,12 +4,11 @@ import java.util.Queue;
 import java.util.concurrent.*;
 
 /**
- * Title: 线程池
- * Description: 线程池
+ * Title: 线程池工厂
+ * Description: 线程池工厂
  * Create Time: 2020/1/21
  *
  * @author hxs
- * @email huangxiaosheng@xxfqc.com
  * Update Time:
  * Updater:
  * Update Comments:
