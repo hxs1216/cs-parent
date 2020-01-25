@@ -14,6 +14,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.util.Assert;
 
@@ -48,7 +49,8 @@ public class TenantDataSourceProvider implements BeanPostProcessor {
     @Autowired
     private HikariProperties hikariProperties;
 
-
+    @Autowired
+    private DefaultListableBeanFactory defaultListableBeanFactory;
     public TenantDataSourceProvider(DataSource dataSource) {
         log.debug("init defaultDataSource.");
         addDefaultDataSource(dataSource);
@@ -122,20 +124,23 @@ public class TenantDataSourceProvider implements BeanPostProcessor {
     }
 
     private void registerBean(String beanName, DataSource hikariDataSource) {
-//        try {
-//            // 动态注入Bean
-//            if (defaultListableBeanFactory.containsBean(beanName)) {
-//                //移除bean的定义和实例
-//                defaultListableBeanFactory.removeBeanDefinition(beanName);
-//            }
-//            BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(hikariDataSource.getClass());
-//            beanDefinitionBuilder.setDestroyMethodName("close");
-//            defaultListableBeanFactory.registerBeanDefinition(beanName, beanDefinitionBuilder.getBeanDefinition());
-//        } catch (Exception e) {
-//            log.error("registerBean failed", e);
-//        }
+        try {
+            // 动态注入Bean
+            if (defaultListableBeanFactory.containsBean(beanName)) {
+                //移除bean的定义和实例
+                defaultListableBeanFactory.removeBeanDefinition(beanName);
+            }
+            BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(hikariDataSource.getClass());
+            beanDefinitionBuilder.setDestroyMethodName("close");
+            defaultListableBeanFactory.registerBeanDefinition(beanName, beanDefinitionBuilder.getBeanDefinition());
+        } catch (Exception e) {
+            log.error("registerBean failed", e);
+        }
     }
 
+    /**
+     * 根据传进来的tenantCode决定返回的数据源
+     */
     public DataSource genDataSource(DataSourceInfo dataSourceInfo) {
         log.info("addDataSource:{}", dataSourceInfo);
         Assert.notNull(dataSourceInfo, "tenantInfo is null");
