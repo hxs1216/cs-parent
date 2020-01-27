@@ -80,6 +80,8 @@ public class TenantDataSourceAspect {
         TenantDataSource annotation = method.getAnnotation(TenantDataSource.class);
         Set<String> tenantCodes = new HashSet<>(Arrays.asList(annotation.value()));
         if (CollectionUtils.isEmpty(tenantCodes)) {
+
+            // 获取数据源
             tenantCodes = TenantDataSourceProvider.getDataSourceMap().keySet();
         }
         Object result = null;
@@ -110,6 +112,8 @@ public class TenantDataSourceAspect {
     private void executeMethodAsync(Method method, String tenantCode) {
         try {
             ThreadTenantUtil.setTenant(tenantCode);
+
+            // 执行ioc中class的method
             pool.execute(() ->
                     ReflectionUtils.invokeMethod(method, SpringContextUtil.getBean(method.getDeclaringClass())));
         } catch (Exception e) {
