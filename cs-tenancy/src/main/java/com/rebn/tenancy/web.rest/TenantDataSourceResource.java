@@ -1,7 +1,7 @@
-package com.taoqi.tenancy.web.rest;
+package com.rebn.tenancy.web.rest;
 
-import com.taoqi.common.entity.DataSourceInfo;
-import com.taoqi.tenancy.service.TenantDataSourceService;
+import com.rebn.common.entity.DataSourceInfo;
+import com.rebn.tenancy.service.TenantDataSourceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
