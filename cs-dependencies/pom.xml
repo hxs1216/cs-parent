@@ -65,7 +65,7 @@
         <spring-data-mongodb.version>1.10.3.RELEASE</spring-data-mongodb.version>
         <jhipster-framework.version>2.0.28</jhipster-framework.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <liquibase-core.version>3.6.2</liquibase-core.version>
+        <liquibase-core.version>4.8.0</liquibase-core.version>
         <guava.version>27.0-jre</guava.version>
         <HikariCP.version>3.2.0</HikariCP.version>
         <hazelcast.version>3.6.5</hazelcast.version>
