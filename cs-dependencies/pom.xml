@@ -62,7 +62,7 @@
         <problem-spring-webflux.version>${problem-spring.version}</problem-spring-webflux.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
         <commons-io.version>2.6</commons-io.version>
-        <spring-data-mongodb.version>1.10.3.RELEASE</spring-data-mongodb.version>
+        <spring-data-mongodb.version>3.3.5</spring-data-mongodb.version>
         <jhipster-framework.version>2.0.28</jhipster-framework.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <liquibase-core.version>3.6.2</liquibase-core.version>
